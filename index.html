@@ -811,6 +811,24 @@
         document.getElementById('lang-ru').onclick = () => setLanguage('ru');
         document.getElementById('lang-en').onclick = () => setLanguage('en');
         // Автоустановка языка при загрузке
+        const CIS_COUNTRIES = [
+            'RU', 'BY', 'KZ', 'UA', 'KG', 'MD', 'TJ', 'UZ', 'AM', 'AZ', 'GE'
+        ];
+        async function detectCountryAndSetLang() {
+            if (localStorage.getItem('lang')) return; // Не менять, если пользователь уже выбрал язык
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const data = await res.json();
+                if (CIS_COUNTRIES.includes(data.country)) {
+                    setLanguage('ru');
+                } else {
+                    setLanguage('en');
+                }
+            } catch (e) {
+                setLanguage('en'); // fallback
+            }
+        }
+        detectCountryAndSetLang();
         const savedLang = localStorage.getItem('lang') || 'ru';
         setLanguage(savedLang);
     </script>
