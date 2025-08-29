@@ -2507,6 +2507,64 @@ html {
     }
 }
 
+/* Logo responsive adjustments */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        font-size: 0.7rem;
+    }
+}
+
+/* Mobile button adjustments */
+@media (max-width: 768px) {
+    .nav-actions .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        min-height: 36px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-actions .btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        min-height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-actions .btn {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+        min-height: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    .nav-actions .btn {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+        min-height: 28px;
+    }
+}
+
 
 
 
