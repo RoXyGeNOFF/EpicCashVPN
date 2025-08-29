@@ -3,555 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPIC CASH VPN - Ваш выбор анонимности</title>
+    <meta name="description" content="EPIC CASH VPN - Ваш выбор анонимности и свободы в интернете. Безопасный, быстрый VPN с серверами в 94 странах.">
+    <meta name="keywords" content="VPN, анонимность, безопасность, шифрование, интернет, свобода, EPIC CASH">
+    <meta name="author" content="EPIC CASH VPN">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://epiccashvpn.com/">
+    <meta property="og:title" content="EPIC CASH VPN - Ваша анонимность и свобода в интернете">
+    <meta property="og:description" content="Безопасный, быстрый и удобный VPN для полной защиты ваших данных">
+    <meta property="og:image" content="https://epiccashvpn.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://epiccashvpn.com/">
+    <meta property="twitter:title" content="EPIC CASH VPN - Ваша анонимность и свобода в интернете">
+    <meta property="twitter:description" content="Безопасный, быстрый и удобный VPN для полной защиты ваших данных">
+    <meta property="twitter:image" content="https://epiccashvpn.com/images/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', 'Montserrat', 'Segoe UI', Arial, sans-serif;
-            color: #fff;
-            background: linear-gradient(135deg, #232323 0%, #181818 100%);
-            min-height: 100vh;
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-        body::before, body::after {
-            content: '';
-            position: fixed;
-            z-index: 0;
-            pointer-events: none;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
-        }
-        body::before {
-            width: 700px;
-            height: 700px;
-            left: -250px;
-            top: -200px;
-            background: radial-gradient(circle, #ffb347 0%, transparent 70%);
-        }
-        body::after {
-            width: 600px;
-            height: 600px;
-            right: -200px;
-            bottom: -150px;
-            background: radial-gradient(circle, #ff8c1a 0%, transparent 70%);
-        }
-        
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 64px;
-            background: linear-gradient(90deg, #181818 60%, #232323 100%);
-            box-shadow: 0 2px 16px rgba(255, 140, 26, 0.10);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid #232323;
-        }
-        
-        .nav-content {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 32px;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            color: #ff8c1a;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 36px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-links a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #ff8c1a;
-            transition: width 0.3s;
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-        }
-        .nav-links a:hover {
-            color: #ff8c1a;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .nav-actions {
-            display: flex;
-            gap: 16px;
-        }
-        
-        .btn {
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-        }
-        
-        .btn-outline {
-            border: 2px solid #ff8c1a;
-            color: #ff8c1a;
-            background: transparent;
-        }
-        
-        .btn-outline:hover {
-            background: #ff8c1a22;
-            color: #fff;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(90deg, #ffb347 0%, #ff8c1a 100%);
-            color: #181818;
-            border: none;
-            box-shadow: 0 2px 8px rgba(255, 140, 26, 0.10);
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(90deg, #ff8c1a 0%, #ffb347 100%);
-            color: #fff;
-        }
-        
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: linear-gradient(135deg, #232323 0%, #1a1a1a 100%);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 900px;
-            height: 600px;
-            background: radial-gradient(circle at 50% 30%, rgba(255, 140, 26, 0.18) 0%, transparent 70%);
-            z-index: 0;
-        }
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-            position: relative;
-        }
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 32px;
-            background: linear-gradient(90deg, #ffb347 0%, #ff8c1a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.08;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 24px rgba(255, 140, 26, 0.10);
-        }
-        .hero p {
-            font-size: 1.6rem;
-            font-weight: 400;
-            color: #e0a96d;
-            margin-bottom: 48px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 24px rgba(255, 140, 26, 0.10);
-        }
-        .hero-btns {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-        }
-        .hero-btns .btn {
-            padding: 18px 40px;
-            font-size: 20px;
-            border-radius: 36px;
-            box-shadow: 0 4px 24px rgba(255, 140, 26, 0.10);
-        }
-        .features {
-            padding: 120px 20px 100px 20px;
-            background: linear-gradient(135deg, #232323 0%, #181818 100%);
-            position: relative;
-            z-index: 1;
-            margin-top: -40px;
-        }
-        .features::before {
-            display: none;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 80px;
-            color: #fff;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 24px rgba(0,0,0,0.10);
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 48px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .feature-card {
-            text-align: center;
-            padding: 56px 36px;
-            border-radius: 32px;
-            background: linear-gradient(135deg, #232323 60%, #181818 100%);
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 32px rgba(0,0,0,0.12);
-            text-decoration: none;
-            color: inherit;
-            border: 2px solid #232323;
-            position: relative;
-            z-index: 1;
-        }
-        .feature-card:hover {
-            transform: translateY(-16px) scale(1.04);
-            box-shadow: 0 16px 48px rgba(255, 140, 26, 0.22);
-            border-color: #ff8c1a;
-        }
-        .feature-icon {
-            font-size: 64px;
-            color: #ff8c1a;
-            margin-bottom: 32px;
-            filter: drop-shadow(0 2px 12px rgba(255, 140, 26, 0.15));
-        }
-        .feature-card h3 {
-            font-size: 28px;
-            margin-bottom: 18px;
-            color: #fff;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-        .feature-card p {
-            color: #e0a96d;
-            font-size: 18px;
-            text-shadow: 0 2px 12px rgba(255, 140, 26, 0.08);
-        }
-        .pricing {
-            padding: 100px 20px;
-            background: #181818;
-        }
-        .pricing-plans {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 36px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .plan-card {
-            background: linear-gradient(135deg, #232323 60%, #181818 100%);
-            border-radius: 32px;
-            width: 340px;
-            min-width: 340px;
-            max-width: 340px;
-            padding: 56px 36px;
-            text-align: center;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.13);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #232323;
-            z-index: 1;
-        }
-        .plan-card:hover {
-            transform: scale(1.06);
-            box-shadow: 0 20px 64px rgba(255, 140, 26, 0.22);
-            border-color: #ff8c1a;
-        }
-        .plan-card.popular::before {
-            content: "Самый популярный";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(90deg, #ff8c1a 0%, #ffb347 100%);
-            color: #181818;
-            font-size: 15px;
-            font-weight: 900;
-            padding: 10px;
-            letter-spacing: 1px;
-            border-top-left-radius: 32px;
-            border-top-right-radius: 32px;
-            box-shadow: 0 2px 12px rgba(255, 140, 26, 0.10);
-        }
-        .plan-title {
-            font-size: 30px;
-            font-weight: 900;
-            margin-bottom: 22px;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-        .plan-price {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 32px;
-            color: #ff8c1a;
-            text-shadow: 0 2px 12px rgba(255, 140, 26, 0.10);
-        }
-        .plan-price span {
-            font-size: 18px;
-            font-weight: 500;
-            color: #e0a96d;
-        }
-        .plan-savings {
-            background: #232323;
-            color: #fff;
-            padding: 10px 18px;
-            border-radius: 24px;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 32px;
-            display: inline-block;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-        }
-        .plan-features {
-            list-style: none;
-            margin-bottom: 36px;
-            text-align: left;
-        }
-        .plan-features li {
-            padding: 12px 0;
-            font-size: 18px;
-            color: #e0a96d;
-            display: flex;
-            align-items: center;
-            text-shadow: 0 2px 8px rgba(255, 140, 26, 0.08);
-        }
-        .plan-features li i {
-            color: #ff8c1a;
-            margin-right: 14px;
-            font-size: 20px;
-        }
-        .cta {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #232323 0%, #181818 100%);
-            color: #fff;
-            text-align: center;
-        }
-        .cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 24px;
-            font-weight: 800;
-        }
-        .cta p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 44px;
-            font-weight: 400;
-            opacity: 0.95;
-            color: #e0a96d;
-        }
-        .footer {
-            padding: 80px 20px 40px 20px;
-            background: linear-gradient(90deg, #181818 60%, #232323 100%);
-            color: #e0a96d;
-            font-size: 16px;
-            border-top: 1.5px solid #232323;
-            position: relative;
-            z-index: 1;
-        }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 56px;
-            margin-bottom: 56px;
-            border-bottom: 1.5px solid #232323;
-            padding-bottom: 32px;
-        }
-        .footer-column {
-            min-width: 220px;
-        }
-        .footer-column h4 {
-            color: #fff;
-            font-size: 18px;
-            margin-bottom: 26px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-        }
-        .footer-column ul {
-            list-style: none;
-        }
-        .footer-column ul li {
-            margin-bottom: 16px;
-        }
-        .footer-column ul li a {
-            text-decoration: none;
-            color: #e0a96d;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-        .footer-column ul li a:hover {
-            color: #ff8c1a;
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 36px;
-            max-width: 1200px;
-            margin: 0 auto;
-            font-size: 15px;
-            color: #e0a96d;
-            opacity: 0.8;
-        }
-        @media (max-width: 900px) {
-            .nav-content {
-                padding: 0 12px;
-            }
-            .features-grid {
-                gap: 24px;
-            }
-            .footer-content {
-                gap: 24px;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-            .nav-links {
-                display: none;
-            }
-            .pricing-plans {
-                flex-direction: column;
-                align-items: center;
-            }
-            .plan-card {
-                width: 100%;
-                min-width: unset;
-                max-width: unset;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-        /* SVG Wave Divider */
-        .wave-divider {
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            position: relative;
-            z-index: 2;
-            margin-bottom: -2px;
-            background: none;
-        }
-        .wave-divider svg {
-            display: block;
-            width: 100vw;
-            min-width: 100%;
-            height: 120px;
-        }
-        @media (max-width: 600px) {
-            .wave-divider svg {
-                height: 60px;
-            }
-        }
-        /* Fade-in animation for sections */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.9s cubic-bezier(.4,0,.2,1), transform 0.9s cubic-bezier(.4,0,.2,1);
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: none;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>EPIC CASH VPN - Ваш выбор анонимности и свободы в интернете</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "EPIC CASH VPN",
+        "description": "Безопасный VPN сервис для анонимности и защиты данных",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Windows, macOS, Linux, iOS, Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "279",
+            "priceCurrency": "RUB",
+            "priceValidUntil": "2024-12-31"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "EPIC CASH VPN",
+            "url": "https://epiccashvpn.com"
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Навигация -->
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-lock"></i>
+                <span>EPIC CASH VPN</span>
+            </div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">
+            <a href="#hero" class="logo">
                 <i class="fas fa-lock"></i>
                 EPIC CASH VPN
-            </div>
+            </a>
+            
             <div class="nav-links">
                 <a href="#hero" data-i18n="nav.main">Главная</a>
                 <a href="#features" data-i18n="nav.features">Преимущества</a>
                 <a href="#pricing" data-i18n="nav.pricing">Тарифы</a>
                 <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
             </div>
+            
             <div class="nav-actions">
-                <button id="lang-ru" class="btn btn-outline" style="min-width:40px;">RU</button>
-                <button id="lang-en" class="btn btn-outline" style="min-width:40px;">EN</button>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.start">Начать бесплатно</a>
+                <div class="lang-switcher">
+                    <button id="lang-ru" class="lang-btn active">RU</button>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </div>
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.start">
+                    <i class="fas fa-rocket"></i>
+                    Начать бесплатно
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero-секция -->
+    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1 data-i18n="hero.title">Ваша анонимность и свобода в интернете</h1>
             <p data-i18n="hero.subtitle">Безопасный, быстрый и удобный VPN для полной защиты ваших данных</p>
             <div class="hero-btns">
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="hero.try">Попробовать бесплатно</a>
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary btn-large" target="_blank" rel="noopener" data-i18n="hero.try">
+                    <i class="fas fa-shield-alt"></i>
+                    Попробовать бесплатно
+                </a>
+                <a href="#features" class="btn btn-outline btn-large">
+                    <i class="fas fa-info-circle"></i>
+                    Узнать больше
+                </a>
+            </div>
+        </div>
+        
+        <!-- Floating elements for visual appeal -->
+        <div class="hero-floating">
+            <div class="floating-icon" style="--delay: 0s">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 2s">
+                <i class="fas fa-globe"></i>
+            </div>
+            <div class="floating-icon" style="--delay: 4s">
+                <i class="fas fa-lock"></i>
             </div>
         </div>
     </section>
 
-    <!-- Преимущества -->
+    <!-- Features Section -->
     <section class="features" id="features">
         <h2 class="section-title" data-i18n="features.title">Преимущества EPIC CASH VPN</h2>
         <div class="features-grid">
@@ -561,49 +145,74 @@
                 </div>
                 <h3 data-i18n="features.strong">Сильное шифрование</h3>
                 <p data-i18n="features.strong_desc">256-битное шифрование защищает ваши данные от взлома и слежки</p>
+                <div class="feature-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </a>
+            
             <a class="feature-card" href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener">
                 <div class="feature-icon">
                     <i class="fas fa-bolt"></i>
                 </div>
                 <h3 data-i18n="features.speed">Высокая скорость</h3>
                 <p data-i18n="features.speed_desc">Сервера в 94 странах обеспечивают молниеносное подключение</p>
+                <div class="feature-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </a>
+            
             <a class="feature-card" href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener">
                 <div class="feature-icon">
                     <i class="fas fa-globe"></i>
                 </div>
                 <h3 data-i18n="features.global">Глобальный доступ</h3>
                 <p data-i18n="features.global_desc">Открывайте сайты и сервисы по всему миру без ограничений</p>
+                <div class="feature-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </a>
+            
             <a class="feature-card" href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener">
                 <div class="feature-icon">
                     <i class="fas fa-user-secret"></i>
                 </div>
                 <h3 data-i18n="features.anon">Анонимность</h3>
                 <p data-i18n="features.anon_desc">Ваши действия в интернете остаются конфиденциальными</p>
+                <div class="feature-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </a>
         </div>
     </section>
 
-    <!-- Тарифы -->
+    <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <h2 class="section-title" data-i18n="pricing.title">Тарифные планы</h2>
         <div class="pricing-plans">
             <div class="plan-card">
                 <h3 class="plan-title" data-i18n="pricing.1m">1 месяц</h3>
-                <div class="plan-price"><span data-i18n="pricing.price1m">699₽</span><span data-i18n="pricing.per_month">/мес</span></div>
+                <div class="plan-price">
+                    <span data-i18n="pricing.price1m">699₽</span>
+                    <span data-i18n="pricing.per_month">/мес</span>
+                </div>
                 <ul class="plan-features">
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim">Безлимитный трафик</span></li>
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.instant">Мгновенное подключение</span></li>
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.devices5">До 5 устройств</span></li>
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.support">Поддержка 24/7</span></li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">Выбрать</a>
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                    <i class="fas fa-check"></i>
+                    Выбрать
+                </a>
             </div>
+            
             <div class="plan-card popular">
                 <h3 class="plan-title" data-i18n="pricing.3m">3 месяца</h3>
-                <div class="plan-price"><span data-i18n="pricing.price3m">559₽</span><span data-i18n="pricing.per_month">/мес</span></div>
+                <div class="plan-price">
+                    <span data-i18n="pricing.price3m">559₽</span>
+                    <span data-i18n="pricing.per_month">/мес</span>
+                </div>
                 <div class="plan-savings" data-i18n="pricing.save20">Экономия 20%</div>
                 <ul class="plan-features">
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.all1m">Все из тарифа "1 месяц"</span></li>
@@ -611,11 +220,18 @@
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.more_servers">Больше серверов</span></li>
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.moneyback">Гарантия возврата</span></li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="pricing.choose">Выбрать</a>
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                    <i class="fas fa-star"></i>
+                    Выбрать
+                </a>
             </div>
+            
             <div class="plan-card">
                 <h3 class="plan-title" data-i18n="pricing.6m">6 месяцев</h3>
-                <div class="plan-price"><span data-i18n="pricing.price6m">419₽</span><span data-i18n="pricing.per_month">/мес</span></div>
+                <div class="plan-price">
+                    <span data-i18n="pricing.price6m">419₽</span>
+                    <span data-i18n="pricing.per_month">/мес</span>
+                </div>
                 <div class="plan-savings" data-i18n="pricing.save40">Экономия 40%</div>
                 <ul class="plan-features">
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.all3m">Все из тарифа "3 месяца"</span></li>
@@ -623,11 +239,18 @@
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.stats">Расширенная статистика</span></li>
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.manager">Персональный менеджер</span></li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">Выбрать</a>
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                    <i class="fas fa-check"></i>
+                    Выбрать
+                </a>
             </div>
+            
             <div class="plan-card">
                 <h3 class="plan-title" data-i18n="pricing.1y">1 год</h3>
-                <div class="plan-price"><span data-i18n="pricing.price1y">279₽</span><span data-i18n="pricing.per_month">/мес</span></div>
+                <div class="plan-price">
+                    <span data-i18n="pricing.price1y">279₽</span>
+                    <span data-i18n="pricing.per_month">/мес</span>
+                </div>
                 <div class="plan-savings" data-i18n="pricing.save60">Экономия 60%</div>
                 <ul class="plan-features">
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.all6m">Все из тарифа "6 месяцев"</span></li>
@@ -635,19 +258,25 @@
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim_devices">Безлимитные устройства</span></li>
                     <li><i class="fas fa-check"></i> <span data-i18n="pricing.bonus">Эксклюзивные бонусы</span></li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">Выбрать</a>
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                    <i class="fas fa-check"></i>
+                    Выбрать
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Призыв к действию -->
+    <!-- Call to Action -->
     <section class="cta" id="signup">
         <h2 data-i18n="cta.title">Начните защищать свои данные уже сегодня</h2>
         <p data-i18n="cta.desc">Зарегистрируйтесь и получите 2 недели бесплатного доступа к EPIC CASH VPN для полной анонимности</p>
-        <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" style="background: #ff8c1a; color: #181818; font-size: 18px; padding: 15px 40px;" target="_blank" rel="noopener" data-i18n="cta.get">Получить бесплатный доступ</a>
+        <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary btn-large" target="_blank" rel="noopener" data-i18n="cta.get">
+            <i class="fas fa-gift"></i>
+            Получить бесплатный доступ
+        </a>
     </section>
 
-    <!-- Контакты -->
+    <!-- Footer -->
     <footer class="footer" id="contacts">
         <div class="footer-content">
             <div class="footer-column">
@@ -659,253 +288,55 @@
                     <li><a href="#contacts" data-i18n="footer.contacts">Контакты</a></li>
                 </ul>
             </div>
+            
             <div class="footer-column">
                 <h4 data-i18n="footer.support">Поддержка</h4>
                 <ul>
-                    <li><a href="#" data-i18n="footer.chat">Чат</a></li>
-                    <li><a href="#" data-i18n="footer.faq">FAQ</a></li>
-                    <li><a href="#" data-i18n="footer.refund">Политика возврата</a></li>
-                    <li><a href="#" data-i18n="footer.reviews">Отзывы</a></li>
+                    <li><a href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener" data-i18n="footer.chat">Чат</a></li>
+                    <li><a href="/faq.html" data-i18n="footer.faq">FAQ</a></li>
+                    <li><a href="/refund.html" data-i18n="footer.refund">Политика возврата</a></li>
+                    <li><a href="/reviews.html" data-i18n="footer.reviews">Отзывы</a></li>
                 </ul>
             </div>
+            
             <div class="footer-column">
                 <h4 data-i18n="footer.resources">Ресурсы</h4>
                 <ul>
-                    <li><a href="#" data-i18n="footer.about">О нас</a></li>
-                    <li><a href="#" data-i18n="footer.blog">Блог</a></li>
-                    <li><a href="#" data-i18n="footer.news">Новости</a></li>
-                    <li><a href="#" data-i18n="footer.partners">Партнеры</a></li>
+                    <li><a href="/about.html" data-i18n="footer.about">О нас</a></li>
+                    <li><a href="/blog.html" data-i18n="footer.blog">Блог</a></li>
+                    <li><a href="/news.html" data-i18n="footer.news">Новости</a></li>
+                    <li><a href="/partners.html" data-i18n="footer.partners">Партнеры</a></li>
                 </ul>
             </div>
+            
             <div class="footer-column">
                 <h4 data-i18n="footer.contacts">Контакты</h4>
                 <ul>
-                    <li><a href="#" data-i18n="footer.email">Электронная почта</a></li>
-                    <li><a href="#" data-i18n="footer.contactus">Связаться с нами</a></li>
-                    <li><a href="#" data-i18n="footer.feedback">Обратная связь</a></li>
-                    <li><a href="#" data-i18n="footer.chat_support">Поддержка в чате</a></li>
+                    <li><a href="mailto:support@epiccashvpn.com" data-i18n="footer.email">Электронная почта</a></li>
+                    <li><a href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener" data-i18n="footer.contactus">Связаться с нами</a></li>
+                    <li><a href="/feedback.html" data-i18n="footer.feedback">Обратная связь</a></li>
+                    <li><a href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener" data-i18n="footer.chat_support">Поддержка в чате</a></li>
                 </ul>
             </div>
         </div>
+        
         <div class="copyright">
-            <p data-i18n="footer.copyright">© 2023 EPIC CASH VPN. Все права защищены. Политика конфиденциальности | Условия | Использование cookie</p>
+            <p data-i18n="footer.copyright">© 2024 EPIC CASH VPN. Все права защищены. <a href="/privacy.html">Политика конфиденциальности</a> | <a href="/terms.html">Условия</a> | <a href="/cookies.html">Использование cookie</a></p>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- Google Analytics (optional) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
-        // Плавная прокрутка к якорям
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.length > 1 && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        // Тень для navbar при прокрутке
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 10px rgba(255, 140, 26, 0.15)';
-            } else {
-                navbar.style.boxShadow = '0 1px 0 rgba(255, 140, 26, 0.10)';
-            }
-        });
-
-        // Мультиязычность
-        const translations = {
-            ru: {
-                'nav.start': 'Начать бесплатно',
-                'nav.main': 'Главная',
-                'nav.features': 'Преимущества',
-                'nav.pricing': 'Тарифы',
-                'nav.contacts': 'Контакты',
-                'hero.title': 'Ваша анонимность и свобода в интернете',
-                'hero.subtitle': 'Безопасный, быстрый и удобный VPN для полной защиты ваших данных',
-                'hero.try': 'Попробовать бесплатно',
-                'features.title': 'Преимущества EPIC CASH VPN',
-                'features.strong': 'Сильное шифрование',
-                'features.strong_desc': '256-битное шифрование защищает ваши данные от взлома и слежки',
-                'features.speed': 'Высокая скорость',
-                'features.speed_desc': 'Сервера в 94 странах обеспечивают молниеносное подключение',
-                'features.global': 'Глобальный доступ',
-                'features.global_desc': 'Открывайте сайты и сервисы по всему миру без ограничений',
-                'features.anon': 'Анонимность',
-                'features.anon_desc': 'Ваши действия в интернете остаются конфиденциальными',
-                'pricing.title': 'Тарифные планы',
-                'pricing.1m': '1 месяц',
-                'pricing.3m': '3 месяца',
-                'pricing.6m': '6 месяцев',
-                'pricing.1y': '1 год',
-                'pricing.per_month': '/мес',
-                'pricing.unlim': 'Безлимитный трафик',
-                'pricing.instant': 'Мгновенное подключение',
-                'pricing.devices5': 'До 5 устройств',
-                'pricing.support': 'Поддержка 24/7',
-                'pricing.choose': 'Выбрать',
-                'pricing.save20': 'Экономия 20%',
-                'pricing.all1m': 'Все из тарифа "1 месяц"',
-                'pricing.priority': 'Приоритетная поддержка',
-                'pricing.more_servers': 'Больше серверов',
-                'pricing.moneyback': 'Гарантия возврата',
-                'pricing.save40': 'Экономия 40%',
-                'pricing.all3m': 'Все из тарифа "3 месяца"',
-                'pricing.devices10': 'До 10 устройств',
-                'pricing.stats': 'Расширенная статистика',
-                'pricing.manager': 'Персональный менеджер',
-                'pricing.save60': 'Экономия 60%',
-                'pricing.all6m': 'Все из тарифа "6 месяцев"',
-                'pricing.dedicated_ip': 'Выделенный IP-адрес',
-                'pricing.unlim_devices': 'Безлимитные устройства',
-                'pricing.bonus': 'Эксклюзивные бонусы',
-                'cta.title': 'Начните защищать свои данные уже сегодня',
-                'cta.desc': 'Зарегистрируйтесь и получите 2 недели бесплатного доступа к EPIC CASH VPN для полной анонимности',
-                'cta.get': 'Получить бесплатный доступ',
-                'footer.company': 'Компания',
-                'footer.main': 'Главная',
-                'footer.features': 'Преимущества',
-                'footer.pricing': 'Тарифы',
-                'footer.contacts': 'Контакты',
-                'footer.support': 'Поддержка',
-                'footer.chat': 'Чат',
-                'footer.faq': 'FAQ',
-                'footer.refund': 'Политика возврата',
-                'footer.reviews': 'Отзывы',
-                'footer.resources': 'Ресурсы',
-                'footer.about': 'О нас',
-                'footer.blog': 'Блог',
-                'footer.news': 'Новости',
-                'footer.partners': 'Партнеры',
-                'footer.email': 'Электронная почта',
-                'footer.contactus': 'Связаться с нами',
-                'footer.feedback': 'Обратная связь',
-                'footer.chat_support': 'Поддержка в чате',
-                'footer.copyright': '© 2023 EPIC CASH VPN. Все права защищены. Политика конфиденциальности | Условия | Использование cookie',
-                'pricing.price1m': '699₽',
-                'pricing.price3m': '559₽',
-                'pricing.price6m': '419₽',
-                'pricing.price1y': '279₽',
-            },
-            en: {
-                'nav.start': 'Start for Free',
-                'nav.main': 'Home',
-                'nav.features': 'Benefits',
-                'nav.pricing': 'Pricing',
-                'nav.contacts': 'Contacts',
-                'hero.title': 'Your Privacy and Freedom Online',
-                'hero.subtitle': 'A secure, fast, and convenient VPN for total data protection',
-                'hero.try': 'Try for Free',
-                'features.title': 'EPIC CASH VPN Benefits',
-                'features.strong': 'Strong Encryption',
-                'features.strong_desc': '256-bit encryption protects your data from hacking and surveillance',
-                'features.speed': 'High Speed',
-                'features.speed_desc': 'Servers in 94 countries ensure lightning-fast connection',
-                'features.global': 'Global Access',
-                'features.global_desc': 'Access websites and services worldwide without restrictions',
-                'features.anon': 'Anonymity',
-                'features.anon_desc': 'Your online activity remains confidential',
-                'pricing.title': 'Pricing Plans',
-                'pricing.1m': '1 Month',
-                'pricing.3m': '3 Months',
-                'pricing.6m': '6 Months',
-                'pricing.1y': '1 Year',
-                'pricing.per_month': '/mo',
-                'pricing.unlim': 'Unlimited traffic',
-                'pricing.instant': 'Instant connection',
-                'pricing.devices5': 'Up to 5 devices',
-                'pricing.support': '24/7 support',
-                'pricing.choose': 'Choose',
-                'pricing.save20': 'Save 20%',
-                'pricing.all1m': 'All from "1 Month" plan',
-                'pricing.priority': 'Priority support',
-                'pricing.more_servers': 'More servers',
-                'pricing.moneyback': 'Money-back guarantee',
-                'pricing.save40': 'Save 40%',
-                'pricing.all3m': 'All from "3 Months" plan',
-                'pricing.devices10': 'Up to 10 devices',
-                'pricing.stats': 'Advanced statistics',
-                'pricing.manager': 'Personal manager',
-                'pricing.save60': 'Save 60%',
-                'pricing.all6m': 'All from "6 Months" plan',
-                'pricing.dedicated_ip': 'Dedicated IP address',
-                'pricing.unlim_devices': 'Unlimited devices',
-                'pricing.bonus': 'Exclusive bonuses',
-                'cta.title': 'Start protecting your data today',
-                'cta.desc': 'Sign up and get 2 weeks of free access to EPIC CASH VPN for complete anonymity',
-                'cta.get': 'Get Free Access',
-                'footer.company': 'Company',
-                'footer.main': 'Home',
-                'footer.features': 'Benefits',
-                'footer.pricing': 'Pricing',
-                'footer.contacts': 'Contacts',
-                'footer.support': 'Support',
-                'footer.chat': 'Chat',
-                'footer.faq': 'FAQ',
-                'footer.refund': 'Refund Policy',
-                'footer.reviews': 'Reviews',
-                'footer.resources': 'Resources',
-                'footer.about': 'About Us',
-                'footer.blog': 'Blog',
-                'footer.news': 'News',
-                'footer.partners': 'Partners',
-                'footer.email': 'Email',
-                'footer.contactus': 'Contact Us',
-                'footer.feedback': 'Feedback',
-                'footer.chat_support': 'Chat Support',
-                'footer.copyright': '© 2023 EPIC CASH VPN. All rights reserved. Privacy Policy | Terms | Cookie Usage',
-                'pricing.price1m': '$9.99',
-                'pricing.price3m': '$7.99',
-                'pricing.price6m': '$5.99',
-                'pricing.price1y': '$3.99',
-            }
-        };
-
-        function setLanguage(lang) {
-            localStorage.setItem('lang', lang);
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    // Для ссылок меню используем innerHTML, для остальных textContent
-                    if (
-                        el.tagName === 'A' &&
-                        (
-                            key === 'nav.main' ||
-                            key === 'nav.features' ||
-                            key === 'nav.pricing' ||
-                            key === 'nav.contacts'
-                        )
-                    ) {
-                        el.innerHTML = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
-                }
-            });
-        }
-        document.getElementById('lang-ru').onclick = () => setLanguage('ru');
-        document.getElementById('lang-en').onclick = () => setLanguage('en');
-        // Автоустановка языка при загрузке
-        const savedLang = localStorage.getItem('lang') || 'ru';
-        setLanguage(savedLang);
-
-        // Fade-in animation for sections
-        function onScrollFadeIn() {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    el.classList.add('visible');
-                }
-            });
-        }
-        window.addEventListener('scroll', onScrollFadeIn);
-        window.addEventListener('DOMContentLoaded', onScrollFadeIn);
-        // Добавляем fade-in класс к секциям
-        document.querySelectorAll('section, .pricing-plans, .footer').forEach(el => {
-            el.classList.add('fade-in');
-        });
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
     </script>
+    -->
 </body>
 </html>

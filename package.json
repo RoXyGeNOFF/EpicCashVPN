@@ -1,0 +1,137 @@
+{
+  "name": "epic-cash-vpn",
+  "version": "1.0.0",
+  "description": "Профессиональный VPN сайт EPIC CASH VPN с современным дизайном и функциональностью",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "live-server --port=3000 --open=/",
+    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build:css": "postcss styles.css -o dist/styles.min.css",
+    "build:js": "terser script.js -o dist/script.min.js",
+    "build:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o dist/index.html index.html",
+    "lint": "eslint script.js",
+    "lint:css": "stylelint styles.css",
+    "format": "prettier --write \"**/*.{js,css,html,md}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && npm run deploy:netlify",
+    "deploy:netlify": "netlify deploy --prod --dir=dist",
+    "deploy:vercel": "vercel --prod",
+    "analyze": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html",
+    "optimize": "npm run optimize:images && npm run optimize:fonts",
+    "optimize:images": "imagemin assets/* --out-dir=dist/assets",
+    "optimize:fonts": "fontmin src/fonts/* --dest=dist/fonts"
+  },
+  "keywords": [
+    "vpn",
+    "privacy",
+    "security",
+    "anonymity",
+    "vpn-service",
+    "web-design",
+    "responsive",
+    "modern",
+    "css-grid",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  "author": {
+    "name": "EPIC CASH VPN Team",
+    "email": "support@epiccashvpn.com",
+    "url": "https://epiccashvpn.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/epic-cash-vpn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/epic-cash-vpn/issues"
+  },
+  "homepage": "https://epiccashvpn.com",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-cli": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^3.0.2",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.1.1",
+    "serve": "^14.2.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "terser": "^5.24.0"
+  },
+  "dependencies": {
+    "font-awesome": "^6.4.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "config": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "postcss": {
+    "plugins": [
+      "autoprefixer",
+      "cssnano"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "warn",
+      "prefer-const": "error"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "color-hex-case": "lower",
+      "color-hex-length": "short",
+      "font-family-name-quotes": "always-where-required",
+      "font-weight-notation": "numeric",
+      "function-url-quotes": "always",
+      "string-quotes": "single",
+      "unit-case": "lower",
+      "value-keyword-case": "lower"
+    }
+  }
+} 
