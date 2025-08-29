@@ -838,7 +838,8 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     transform: none;
 }
 
-/* Responsive Design */
+/* Responsive Design - Enhanced Mobile Optimization */
+/* Large Tablets and Small Laptops */
 @media (max-width: 1200px) {
     .nav-content {
         padding: 0 1.5rem;
@@ -851,11 +852,30 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     .pricing-plans {
         gap: 1.5rem;
     }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.5rem;
+    }
 }
 
+/* Tablets Portrait */
 @media (max-width: 900px) {
     .nav-content {
         padding: 0 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: 1.25rem;
+        line-height: 1.5;
     }
     
     .features-grid {
@@ -863,12 +883,33 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
         gap: 1.5rem;
     }
     
+    .pricing-plans {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
     .footer-content {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 2rem;
     }
+    
+    .mission-content,
+    .story-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
+/* Tablets and Large Phones */
 @media (max-width: 768px) {
     .navbar {
         height: 70px;
@@ -882,26 +923,50 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
         display: none;
     }
     
+    .hero {
+        padding: 0 1rem;
+        min-height: 80vh;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
     }
     
     .hero p {
         font-size: 1.25rem;
+        line-height: 1.5;
+        margin-bottom: 2rem;
     }
     
     .hero-btns {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+    }
+    
+    .hero-btns .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
     }
     
     .pricing-plans {
         grid-template-columns: 1fr;
         max-width: 400px;
+        margin: 0 auto;
     }
     
     .section-title {
         font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.125rem;
+        line-height: 1.5;
     }
     
     .features {
@@ -923,37 +988,524 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     .floating-icon {
         display: none;
     }
+    
+    /* FAQ Page */
+    .faq-header {
+        padding: 6rem 1rem 3rem;
+        margin-top: 70px;
+    }
+    
+    .faq-header h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .faq-content {
+        padding: 3rem 1rem;
+    }
+    
+    .faq-question {
+        padding: 1.5rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1.125rem;
+        line-height: 1.4;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    /* About Page */
+    .about-header {
+        padding: 6rem 1rem 3rem;
+        margin-top: 70px;
+    }
+    
+    .about-header h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .mission-section,
+    .values-section,
+    .story-section,
+    .team-section {
+        padding: 4rem 1rem;
+    }
+    
+    .mission-icon {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
+/* Medium Phones */
 @media (max-width: 600px) {
     .hero {
         padding: 0 1rem;
+        min-height: 70vh;
     }
     
     .hero h1 {
         font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
     }
     
     .hero p {
         font-size: 1.125rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
     }
     
     .btn {
-        padding: 10px 24px;
+        padding: 12px 24px;
         font-size: 0.875rem;
+        min-height: 44px; /* Touch-friendly */
     }
     
     .btn-large {
-        padding: 14px 32px;
+        padding: 16px 32px;
         font-size: 1.125rem;
+        min-height: 48px;
     }
     
     .feature-card {
-        padding: 3rem 2rem;
+        padding: 2.5rem 1.5rem;
+        margin: 0 0.5rem;
     }
     
     .plan-card {
-        padding: 2.5rem 2rem;
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* FAQ Page */
+    .faq-header h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .faq-header p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .faq-cta h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    /* About Page */
+    .about-header h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .about-header p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .mission-text h2,
+    .story-text h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .values-section h2,
+    .team-section h2 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    .hero {
+        padding: 0 0.75rem;
+        min-height: 60vh;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.875rem;
+        min-height: 44px;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .btn-large {
+        padding: 14px 28px;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+    
+    .feature-card {
+        padding: 2rem 1.25rem;
+        margin: 0 0.25rem;
+    }
+    
+    .plan-card {
+        padding: 1.75rem 1.25rem;
+        margin: 0 0.25rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+    
+    .features {
+        padding: 5rem 0.75rem 3rem;
+    }
+    
+    .pricing {
+        padding: 3rem 0.75rem;
+    }
+    
+    .cta {
+        padding: 3rem 0.75rem;
+    }
+    
+    .footer {
+        padding: 2rem 0.75rem 1.5rem;
+    }
+    
+    /* FAQ Page */
+    .faq-header {
+        padding: 5rem 0.75rem 2.5rem;
+    }
+    
+    .faq-header h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+    
+    .faq-content {
+        padding: 2.5rem 0.75rem;
+    }
+    
+    .faq-question {
+        padding: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    
+    .faq-answer {
+        padding: 0 1.25rem 1.25rem;
+    }
+    
+    .faq-answer p,
+    .faq-answer li {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+    
+    /* About Page */
+    .about-header {
+        padding: 4rem 0.5rem 2rem;
+    }
+    
+    .about-header h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .mission-section,
+    .values-section,
+    .story-section,
+    .team-section {
+        padding: 2.5rem 0.5rem;
+    }
+    
+    .mission-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .value-card {
+        padding: 1.75rem 1rem;
+    }
+    
+    .team-member {
+        padding: 1.25rem 1rem;
+    }
+    
+    .member-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+    }
+}
+
+/* Extra Small Phones */
+@media (max-width: 360px) {
+    .hero {
+        padding: 0 0.5rem;
+        min-height: 55vh;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        min-height: 40px;
+        max-width: 260px;
+    }
+    
+    .btn-large {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+    
+    .feature-card {
+        padding: 1.75rem 1rem;
+        margin: 0 0.125rem;
+    }
+    
+    .plan-card {
+        padding: 1.5rem 1rem;
+        margin: 0 0.125rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    .features {
+        padding: 4rem 0.5rem 2.5rem;
+    }
+    
+    .pricing {
+        padding: 2.5rem 0.5rem;
+    }
+    
+    .cta {
+        padding: 2.5rem 0.5rem;
+    }
+    
+    .footer {
+        padding: 1.5rem 0.5rem 1rem;
+    }
+    
+    /* FAQ Page */
+    .faq-header {
+        padding: 4rem 0.5rem 2rem;
+    }
+    
+    .faq-header h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .faq-content {
+        padding: 2rem 0.5rem;
+    }
+    
+    .faq-question {
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .faq-answer {
+        padding: 0 1rem 1rem;
+    }
+    
+    .faq-answer p,
+    .faq-answer li {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    /* About Page */
+    .about-header {
+        padding: 4rem 0.5rem 2rem;
+    }
+    
+    .about-header h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .mission-section,
+    .values-section,
+    .story-section,
+    .team-section {
+        padding: 2.5rem 0.5rem;
+    }
+    
+    .mission-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .value-card {
+        padding: 1.75rem 1rem;
+    }
+    
+    .team-member {
+        padding: 1.25rem 1rem;
+    }
+    
+    .member-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+    }
+}
+
+/* Landscape Orientation for Small Phones */
+@media (max-width: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: 50vh;
+        padding: 2rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-btns {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .hero-btns .btn {
+        width: auto;
+        max-width: none;
+    }
+    
+    .features {
+        padding: 4rem 1rem 2rem;
+    }
+    
+    .pricing {
+        padding: 2rem 1rem;
+    }
+    
+    .cta {
+        padding: 2rem 1rem;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .btn,
+    .feature-card,
+    .plan-card {
+        border-width: 0.5px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #ffffff;
+        --text-secondary: #e0a96d;
+        --dark-bg: #0a0a0a;
+        --secondary-color: #1a1a1a;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
     }
 }
 
@@ -1149,48 +1701,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     flex-wrap: wrap;
 }
 
-/* FAQ Responsive */
-@media (max-width: 768px) {
-    .faq-header {
-        padding: 6rem 1rem 3rem;
-        margin-top: 70px;
-    }
-    
-    .faq-header h1 {
-        font-size: 2.5rem;
-    }
-    
-    .faq-content {
-        padding: 3rem 1rem;
-    }
-    
-    .faq-question {
-        padding: 1.5rem;
-    }
-    
-    .faq-question h3 {
-        font-size: 1.125rem;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .faq-header h1 {
-        font-size: 2rem;
-    }
-    
-    .faq-header p {
-        font-size: 1rem;
-    }
-    
-    .faq-cta h2 {
-        font-size: 2rem;
-    }
-}
+/* FAQ Responsive - Now handled in main responsive system */
 
 /* About Page Styles */
 .about-header {
@@ -1538,75 +2049,465 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 }
 
 /* About Page Responsive */
-@media (max-width: 900px) {
-    .mission-content,
-    .story-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-    
-    .values-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
+
+/* Mobile-First Enhancements */
+/* Prevent text overflow and improve readability */
+.hero h1,
+.hero p,
+.section-title,
+.section-subtitle,
+.feature-card h3,
+.feature-card p,
+.plan-card h3,
+.plan-card p,
+.faq-question h3,
+.faq-answer p,
+.faq-answer li,
+.about-header h1,
+.about-header p,
+.mission-text h2,
+.mission-text p,
+.values-section h2,
+.values-section > .container > p,
+.value-card h3,
+.value-card p,
+.story-text h2,
+.story-text p,
+.team-section h2,
+.team-section > .container > p,
+.team-member h3,
+.team-member p,
+.stats-section h2,
+.about-cta h2,
+.about-cta p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* Touch-friendly buttons and interactive elements */
+.btn,
+.btn-large,
+.feature-card,
+.plan-card,
+.faq-question,
+.nav-links a,
+.footer a {
+    min-height: 44px; /* iOS recommended minimum */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve spacing for mobile */
+.feature-card,
+.plan-card,
+.faq-item,
+.value-card,
+.team-member {
+    margin-bottom: 1rem;
+}
+
+/* Better grid layouts for mobile */
+.features-grid,
+.pricing-plans,
+.values-grid,
+.team-grid,
+.stats-grid {
+    gap: 1rem;
+}
+
+/* Improved mobile navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Mobile menu improvements */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 @media (max-width: 768px) {
-    .about-header {
-        padding: 6rem 1rem 3rem;
-        margin-top: 70px;
+    .mobile-menu-toggle {
+        display: block;
     }
     
-    .about-header h1 {
-        font-size: 2.5rem;
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--dark-bg);
+        padding: 1rem;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
     
-    .mission-section,
-    .values-section,
-    .story-section,
-    .team-section {
-        padding: 4rem 1rem;
+    .nav-links.mobile-open {
+        transform: translateY(0);
     }
     
-    .mission-icon {
-        width: 150px;
-        height: 150px;
-        font-size: 3rem;
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .nav-links a:last-child {
+        border-bottom: none;
     }
 }
 
-@media (max-width: 600px) {
-    .about-header h1 {
-        font-size: 2rem;
+/* Prevent horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Improve form elements on mobile */
+input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+}
+
+/* Better image handling on mobile */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve card shadows and borders on mobile */
+.feature-card,
+.plan-card,
+.value-card,
+.team-member {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Better spacing for mobile lists */
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Improve mobile typography */
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+/* Better mobile spacing */
+.container {
+    padding: 0 1rem;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Improve mobile performance */
+.feature-card,
+.plan-card,
+.value-card,
+.team-member {
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Better mobile animations */
+@media (prefers-reduced-motion: no-preference) {
+    .feature-card:hover,
+    .plan-card:hover,
+    .value-card:hover,
+    .team-member:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Mobile-specific improvements for FAQ */
+.faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+}
+
+/* Mobile improvements for pricing cards */
+.plan-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+}
+
+/* Mobile improvements for team cards */
+.team-member {
+    text-align: center;
+}
+
+.member-avatar {
+    margin: 0 auto 1rem;
+}
+
+/* Mobile improvements for stats */
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile improvements for CTA sections */
+.cta,
+.about-cta {
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Mobile improvements for footer */
+.footer-content {
+    text-align: center;
+}
+
+.footer-content > div {
+    margin-bottom: 2rem;
+}
+
+/* Mobile improvements for language switcher */
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.language-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: var(--text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 44px;
+}
+
+.language-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.language-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+/* Mobile improvements for floating elements */
+.hero-floating {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .hero-floating {
+        display: block;
+    }
+}
+
+/* Mobile improvements for loading screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-logo {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 480px) {
+    .loading-logo {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
     }
     
-    .about-header p {
-        font-size: 1rem;
+    .loading-spinner {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Mobile improvements for scroll animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile improvements for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
     
-    .mission-text h2,
-    .story-text h2 {
-        font-size: 2rem;
+    .fade-in {
+        transition: none;
+    }
+}
+
+/* Mobile improvements for focus states */
+.btn:focus,
+.feature-card:focus,
+.plan-card:focus,
+.faq-question:focus,
+.nav-links a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Mobile improvements for selection */
+::selection {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+::-moz-selection {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+/* Mobile improvements for scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+/* Mobile improvements for print */
+@media print {
+    .navbar,
+    .hero-btns,
+    .cta,
+    .footer,
+    .mobile-menu-toggle {
+        display: none !important;
     }
     
-    .values-section h2,
-    .team-section h2 {
-        font-size: 2.5rem;
+    .hero,
+    .features,
+    .pricing {
+        padding: 1rem 0;
     }
     
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .feature-card,
+    .plan-card {
+        break-inside: avoid;
+        margin-bottom: 1rem;
     }
-    
-    .stat-number {
-        font-size: 2.5rem;
-    }
-} 
+}
+
+
+
+
+ 

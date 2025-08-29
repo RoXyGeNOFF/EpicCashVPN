@@ -11,6 +11,9 @@ class EpicVPN {
         this.initializeLanguage();
         this.setupScrollAnimations();
         this.setupMobileMenu();
+        this.setupFAQAccordion();
+        this.setupMobileTouchHandling();
+        this.setupMobilePerformance();
         this.setupSmoothScrolling();
         this.setupIntersectionObserver();
         this.setupPerformanceOptimizations();
@@ -284,36 +287,80 @@ class EpicVPN {
 
     // Mobile Menu
     setupMobileMenu() {
-        const mobileMenuToggle = document.createElement('button');
-        mobileMenuToggle.className = 'mobile-menu-toggle';
-        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        mobileMenuToggle.style.display = 'none';
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
         
-        const navContent = document.querySelector('.nav-content');
-        if (navContent) {
-            navContent.appendChild(mobileMenuToggle);
+        if (mobileMenuToggle && navLinks) {
+            // Toggle mobile menu
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-open');
+                mobileMenuToggle.classList.toggle('active');
+                
+                // Change icon
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    icon.className = navLinks.classList.contains('mobile-open') 
+                        ? 'fas fa-times' 
+                        : 'fas fa-bars';
+                }
+                
+                // Prevent body scroll when menu is open
+                document.body.style.overflow = navLinks.classList.contains('mobile-open') 
+                    ? 'hidden' 
+                    : '';
+            });
+            
+            // Close menu when clicking on links
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('mobile-open');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    const icon = mobileMenuToggle.querySelector('i');
+                    if (icon) {
+                        icon.className = 'fas fa-bars';
+                    }
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('mobile-open');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    const icon = mobileMenuToggle.querySelector('i');
+                    if (icon) {
+                        icon.className = 'fas fa-bars';
+                    }
+                }
+            });
         }
-
-        // Show mobile menu on small screens
-        this.handleResize();
-        
-        mobileMenuToggle.addEventListener('click', () => {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('mobile-open');
-            mobileMenuToggle.classList.toggle('active');
-        });
     }
 
     handleResize() {
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navLinks = document.querySelector('.nav-links');
         
-        if (window.innerWidth <= 768) {
-            mobileMenuToggle.style.display = 'block';
-            navLinks.classList.add('mobile-hidden');
-        } else {
-            mobileMenuToggle.style.display = 'none';
-            navLinks.classList.remove('mobile-hidden', 'mobile-open');
+        if (mobileMenuToggle && navLinks) {
+            if (window.innerWidth <= 768) {
+                mobileMenuToggle.style.display = 'block';
+                navLinks.classList.add('mobile-hidden');
+                navLinks.classList.remove('mobile-open');
+                document.body.style.overflow = '';
+            } else {
+                mobileMenuToggle.style.display = 'none';
+                navLinks.classList.remove('mobile-hidden', 'mobile-open');
+                document.body.style.overflow = '';
+                
+                // Reset icon
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas fa-bars';
+                }
+            }
         }
     }
 
@@ -476,31 +523,136 @@ class EpicVPN {
         }
     }
 
-    // Error Handling
+    // FAQ Accordion functionality
+    setupFAQAccordion() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Close other open answers
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer && otherAnswer.classList.contains('active')) {
+                        otherAnswer.classList.remove('active');
+                        const otherIcon = otherAnswer.previousElementSibling.querySelector('i');
+                        if (otherIcon) {
+                            otherIcon.className = 'fas fa-chevron-down';
+                        }
+                    }
+                });
+                
+                // Toggle current answer
+                answer.classList.toggle('active');
+                
+                // Rotate icon
+                if (icon) {
+                    icon.className = answer.classList.contains('active') 
+                        ? 'fas fa-chevron-up' 
+                        : 'fas fa-chevron-down';
+                }
+            });
+        });
+    }
+
+    // Enhanced mobile touch handling
+    setupMobileTouchHandling() {
+        // Add touch feedback for buttons
+        const touchElements = document.querySelectorAll('.btn, .feature-card, .plan-card, .faq-question');
+        
+        touchElements.forEach(element => {
+            element.addEventListener('touchstart', () => {
+                element.style.transform = 'scale(0.98)';
+            });
+            
+            element.addEventListener('touchend', () => {
+                element.style.transform = '';
+            });
+        });
+        
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (event) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    }
+
+    // Mobile performance optimizations
+    setupMobilePerformance() {
+        // Reduce animations on low-end devices
+        if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+            document.documentElement.style.setProperty('--transition', 'none');
+        }
+        
+        // Optimize for mobile devices
+        if ('ontouchstart' in window) {
+            document.documentElement.classList.add('touch-device');
+        }
+    }
+
+    // Enhanced error handling for mobile
     handleError(error, context) {
         console.error(`Error in ${context}:`, error);
         
-        // Send error to analytics
-        this.sendAnalytics('error', error.message, context);
-        
-        // Show user-friendly error message
-        this.showNotification('Произошла ошибка. Попробуйте обновить страницу.', 'error');
+        // Show user-friendly error message on mobile
+        if (window.innerWidth <= 768) {
+            this.showNotification('Произошла ошибка. Попробуйте обновить страницу.', 'error');
+        }
     }
 
+    // Mobile-friendly notifications
     showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+        
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
-        notification.textContent = message;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+        
+        // Add styles
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--${type === 'error' ? 'primary-color' : 'secondary-color'});
+            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            max-width: 90vw;
+            width: max-content;
+            animation: slideInDown 0.3s ease;
+        `;
         
         document.body.appendChild(notification);
         
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 100);
+        // Close button functionality
+        const closeBtn = notification.querySelector('.notification-close');
+        closeBtn.addEventListener('click', () => {
+            notification.remove();
+        });
         
+        // Auto-remove after 5 seconds
         setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
+            if (notification.parentNode) {
+                notification.remove();
+            }
         }, 5000);
     }
 }
@@ -509,6 +661,51 @@ class EpicVPN {
 document.addEventListener('DOMContentLoaded', () => {
     window.epicVPN = new EpicVPN();
 });
+
+// Add CSS for notifications
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    @keyframes slideInDown {
+        from {
+            transform: translateX(-50%) translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .notification-close {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        padding: 0.25rem;
+        margin-left: 0.5rem;
+    }
+    
+    .notification-close:hover {
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 480px) {
+        .notification {
+            left: 1rem;
+            right: 1rem;
+            transform: none;
+            width: auto;
+        }
+    }
+`;
+
+document.head.appendChild(notificationStyles);
 
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
