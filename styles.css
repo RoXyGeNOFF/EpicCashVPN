@@ -8,7 +8,7 @@
     --primary-light: #ffb347;
     --secondary-color: #232323;
     --dark-bg: #181818;
-    --text-primary: #ffffff;
+    --text-primary: #f0f0f0;
     --text-secondary: #e0a96d;
     --accent-gradient: linear-gradient(90deg, #ffb347 0%, #ff8c1a 100%);
     --bg-gradient: linear-gradient(135deg, #232323 0%, #181818 100%);
@@ -261,8 +261,9 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 }
 
 .nav-links.mobile-open {
-    position: absolute;
-    top: 100%;
+    display: flex !important;
+    position: fixed;
+    top: 80px;
     left: 0;
     right: 0;
     background: rgba(24, 24, 24, 0.98);
@@ -272,6 +273,19 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     gap: 1.5rem;
     border-top: 1px solid rgba(255, 140, 26, 0.2);
     box-shadow: var(--shadow-primary);
+    z-index: 1000;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Buttons */
@@ -290,6 +304,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     position: relative;
     overflow: hidden;
     min-height: 48px;
+    text-align: center;
 }
 
 .btn::before {
@@ -666,6 +681,45 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
     box-shadow: var(--shadow-primary);
+    z-index: 10;
+}
+
+.plan-card.premium {
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 80px rgba(255, 140, 26, 0.3);
+    background: linear-gradient(135deg, var(--secondary-color) 40%, var(--dark-bg) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.plan-card.premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, transparent 100%);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.plan-card.premium::after {
+    content: "Premium";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: var(--dark-bg);
+    font-size: 0.875rem;
+    font-weight: 900;
+    padding: 0.75rem;
+    letter-spacing: 1px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+    z-index: 10;
 }
 
 .plan-title {
@@ -744,6 +798,66 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     font-weight: 400;
     opacity: 0.95;
     color: var(--text-secondary);
+}
+
+/* EPIC CASH Section */
+.epic-cash {
+    padding: 6rem 2rem;
+    background: var(--dark-bg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.epic-cash::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 140, 26, 0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.epic-cash-content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.epic-cash-logo {
+    width: 120px;
+    height: 120px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 3rem;
+    color: var(--dark-bg);
+    box-shadow: var(--shadow-primary);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.epic-cash h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+.epic-cash p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
 }
 
 /* Footer */
@@ -1487,7 +1601,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-primary: #ffffff;
+        --text-primary: #f0f0f0;
         --text-secondary: #e0a96d;
         --dark-bg: #0a0a0a;
         --secondary-color: #1a1a1a;
