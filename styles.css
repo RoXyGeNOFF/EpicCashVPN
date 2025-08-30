@@ -209,6 +209,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     transition: var(--transition);
     position: relative;
     padding: 8px 0;
+    opacity: 0.7;
 }
 
 .nav-links a::after {
@@ -224,6 +225,8 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
 .nav-links a:hover {
     color: var(--primary-color);
+    opacity: 1;
+    transform: translateY(-1px);
 }
 
 .nav-links a:hover::after {
@@ -326,6 +329,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background: transparent;
+    opacity: 0.8;
 }
 
 .btn-outline:hover {
@@ -333,6 +337,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     color: var(--dark-bg);
     transform: translateY(-2px);
     box-shadow: var(--shadow-primary);
+    opacity: 1;
 }
 
 .btn-primary {
@@ -375,12 +380,20 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     background: transparent;
     color: var(--primary-color);
     min-width: 50px;
+    opacity: 0.7;
 }
 
-.lang-btn:hover,
+.lang-btn:hover {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
 .lang-btn.active {
     background: var(--primary-color);
     color: var(--dark-bg);
+    opacity: 1;
 }
 
 /* Hero Section */
@@ -830,16 +843,17 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .epic-cash-logo {
     width: 120px;
     height: 120px;
-    background: var(--accent-gradient);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 2rem;
-    font-size: 3rem;
-    color: var(--dark-bg);
-    box-shadow: var(--shadow-primary);
     animation: pulse 2s ease-in-out infinite;
+}
+
+.epic-cash-logo svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 20px rgba(255, 215, 0, 0.3));
 }
 
 .epic-cash h2 {
@@ -880,6 +894,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     margin-bottom: 3.5rem;
     border-bottom: 1.5px solid var(--secondary-color);
     padding-bottom: 2rem;
+    text-align: center;
 }
 
 .footer-column h4 {
@@ -892,6 +907,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
 .footer-column ul {
     list-style: none;
+    text-align: center;
 }
 
 .footer-column ul li {
@@ -2282,6 +2298,14 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
         padding: 1rem;
         text-align: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0.7;
+        transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+        opacity: 1;
+        background: rgba(255, 140, 26, 0.1);
+        color: var(--primary-color);
     }
     
     .nav-links a:last-child {
