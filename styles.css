@@ -2797,3 +2797,6 @@ html {
 
 
  
+/* EPIC CASH logo fix */
+.epic-cash-container {display:flex;justify-content:center;align-items:center;text-align:center;padding:40px 20px;}
+.epic-cash-logo {max-width:200px;height:auto;}
