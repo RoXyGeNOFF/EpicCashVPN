@@ -841,13 +841,13 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 }
 
 .epic-cash-logo {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 2rem;
-    animation: pulse 2s ease-in-out infinite;
+   
 }
 
 .epic-cash-logo img {
