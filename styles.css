@@ -468,7 +468,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 1.6rem;   /* уменьшаем заголовок */
-        margin-top: 2rem;   /* опускаем чуть ниже */
+        margin-top: 3.5rem;   /* опускаем чуть ниже */
     }
     .hero-content p {
         font-size: 1rem;
