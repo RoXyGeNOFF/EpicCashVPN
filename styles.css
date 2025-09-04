@@ -429,35 +429,53 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     50% { opacity: 0.25; transform: translateX(-50%) scale(1.05); }
 }
 
-.hero-content {
-    max-width: 900px;
-    z-index: 2;
+/* =========================
+   HERO SECTION FIX
+   ========================= */
+   .hero-content {
     position: relative;
+    z-index: 2; /* текст всегда выше иконок */
+    text-align: center;
+    padding: 2rem 1rem;
 }
 
-.hero h1 {
-    font-weight: 900;
-    margin-bottom: 2rem;
+.hero-content h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    margin-bottom: 1rem;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    line-height: 1.1;
     letter-spacing: 2px;
     text-shadow: 0 4px 32px rgba(255, 140, 26, 0.2);
     animation: fadeInUp 1s ease-out;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    font-weight: 400;
+.hero-content p {
+    font-size: 1.2rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     text-shadow: 0 2px 24px rgba(255, 140, 26, 0.1);
     animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.6rem;   /* уменьшаем заголовок */
+        margin-top: 2rem;   /* опускаем чуть ниже */
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-floating {
+        display: none; /* убираем плавающие иконки на мобильных */
+    }
 }
 
 .hero-btns {
