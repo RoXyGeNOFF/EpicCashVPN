@@ -1,7 +1,7 @@
 {
-  "name": "epic-cash-vpn",
+  "name": "epic-vpn",
   "version": "1.0.0",
-  "description": "Профессиональный VPN сайт EPIC CASH VPN с современным дизайном и функциональностью",
+  "description": "Профессиональный VPN сайт EPIC VPN с современным дизайном и функциональностью",
   "main": "index.html",
   "scripts": {
     "start": "serve .",
@@ -37,19 +37,19 @@
     "css3"
   ],
   "author": {
-    "name": "EPIC CASH VPN Team",
-    "email": "support@epiccashvpn.com",
-    "url": "https://epiccashvpn.com"
+    "name": "EPIC VPN Team",
+    "email": "support@epicvpn.io",
+    "url": "https://epicvpn.io"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/epic-cash-vpn.git"
+    "url": "https://github.com/RoXyGeNOFF/epic-cash-vpn.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/epic-cash-vpn/issues"
+    "url": "https://github.com/RoXyGeNOFF/epic-cash-vpn/issues"
   },
-  "homepage": "https://epiccashvpn.com",
+  "homepage": "https://epicvpn.io",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "cssnano": "^6.0.1",

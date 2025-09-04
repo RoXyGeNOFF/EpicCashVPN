@@ -1,4 +1,4 @@
-/* EPIC CASH VPN - Main Stylesheet */
+/* EPIC VPN - Main Stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
@@ -733,6 +733,17 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     border-top-right-radius: var(--border-radius);
     box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
     z-index: 10;
+}
+
+/* Фикс для Premium Year блока */
+.plan-card.premium .plan-title {
+    margin-top: 1.5em; /* опускаем текст заголовка ниже бейджа */
+}
+
+@media (max-width: 768px) {
+    .plan-card.premium .plan-title {
+        margin-top: 2em; /* на мобильных ещё больше отступ */
+    }
 }
 
 .plan-title {
@@ -2797,6 +2808,6 @@ html {
 
 
  
-/* EPIC CASH logo fix */
+/* EPIC logo fix */
 .epic-cash-container {display:flex;justify-content:center;align-items:center;text-align:center;padding:40px 20px;}
 .epic-cash-logo {max-width:200px;height:auto;}
