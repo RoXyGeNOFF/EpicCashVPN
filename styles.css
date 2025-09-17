@@ -74,10 +74,14 @@ body {
     color: var(--text-primary);
 }
 
-.loading-logo i {
+.loading-logo i,
+.loading-icon {
     margin-right: 1rem;
     color: var(--primary-color);
     font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
 }
 
 .loading-spinner {
@@ -184,10 +188,14 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     transition: var(--transition);
 }
 
-.logo i {
+.logo i,
+.logo-icon {
     margin-right: 12px;
     color: var(--primary-color);
     font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
 }
 
 .logo:hover {
@@ -434,7 +442,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
    ========================= */
    .hero-content {
     position: relative;
-    z-index: 2; /* текст всегда выше иконок */
+        z-index: 2; /* text always above icons */
     text-align: center;
     padding: 2rem 1rem;
 }
@@ -464,17 +472,17 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-/* Адаптив для мобилок */
+    /* Mobile responsive */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 1.6rem;   /* уменьшаем заголовок */
-        margin-top: 3.5rem;   /* опускаем чуть ниже */
+        font-size: 1.6rem;   /* reduce heading size */
+        margin-top: 3.5rem;   /* move down slightly */
     }
     .hero-content p {
         font-size: 1rem;
     }
     .hero-floating {
-        display: none; /* убираем плавающие иконки на мобильных */
+        display: none; /* hide floating icons on mobile */
     }
 }
 
@@ -698,7 +706,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 }
 
 .plan-card.popular::before {
-    content: "Самый популярный";
+        content: "Most Popular";
     position: absolute;
     top: 0;
     left: 0;
@@ -753,14 +761,14 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     z-index: 10;
 }
 
-/* Фикс для Premium Year блока */
+    /* Fix for Premium Year block */
 .plan-card.premium .plan-title {
-    margin-top: 1.5em; /* опускаем текст заголовка ниже бейджа */
+        margin-top: 1.5em; /* move title text below badge */
 }
 
 @media (max-width: 768px) {
     .plan-card.premium .plan-title {
-        margin-top: 2em; /* на мобильных ещё больше отступ */
+        margin-top: 2em; /* even more spacing on mobile */
     }
 }
 
@@ -980,6 +988,10 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     margin-bottom: 1.5rem;
     font-weight: 900;
     letter-spacing: 0.5px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .footer-column ul {
@@ -2769,11 +2781,19 @@ html {
     .logo {
         font-size: 0.9rem;
     }
+    .logo-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
 }
 
 @media (max-width: 600px) {
     .logo {
         font-size: 0.8rem;
+    }
+    .logo-icon {
+        width: 1.6rem;
+        height: 1.6rem;
     }
 }
 
@@ -2781,11 +2801,19 @@ html {
     .logo {
         font-size: 0.75rem;
     }
+    .logo-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
 }
 
 @media (max-width: 360px) {
     .logo {
         font-size: 0.7rem;
+    }
+    .logo-icon {
+        width: 1.2rem;
+        height: 1.2rem;
     }
 }
 

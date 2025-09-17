@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EPIC VPN - Ваш выбор анонимности и свободы в интернете. Безопасный, быстрый VPN с серверами в многих странах.">
-    <meta name="keywords" content="VPN, анонимность, безопасность, шифрование, интернет, свобода, EPIC CASH">
+    <meta name="description" content="EPIC VPN - Your choice for anonymity and freedom on the Internet. Secure, fast VPN with servers in many countries.">
+    <meta name="keywords" content="VPN, anonymity, security, encryption, internet, freedom, EPIC CASH">
     <meta name="author" content="EPIC VPN">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://epicvpn.io/">
-    <meta property="og:title" content="EPIC VPN - Ваша анонимность и свобода в интернете">
-    <meta property="og:description" content="Безопасный, быстрый и удобный VPN для полной защиты ваших данных">
+    <meta property="og:title" content="EPIC VPN - Your anonymity and freedom on the Internet">
+    <meta property="og:description" content="Secure, fast and convenient VPN for complete protection of your data">
     <meta property="og:image" content="https://epicvpn.io/images/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://epicvpn.io/">
-    <meta property="twitter:title" content="EPIC VPN - Ваша анонимность и свобода в интернете">
-    <meta property="twitter:description" content="Безопасный, быстрый и удобный VPN для полной защиты ваших данных">
+    <meta property="twitter:title" content="EPIC VPN - Your anonymity and freedom on the Internet">
+    <meta property="twitter:description" content="Secure, fast and convenient VPN for complete protection of your data">
     <meta property="twitter:image" content="https://epicvpn.io/images/twitter-image.jpg">
     
     <!-- Favicon -->
@@ -47,13 +47,13 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "EPIC VPN",
-        "description": "Безопасный VPN сервис для анонимности и защиты данных",
+        "description": "Secure VPN service for anonymity and data protection",
         "applicationCategory": "SecurityApplication",
         "operatingSystem": "Windows, macOS, Linux, iOS, Android",
         "offers": {
             "@type": "Offer",
-            "price": "279",
-            "priceCurrency": "RUB",
+            "price": "9.99",
+            "priceCurrency": "USD",
             "priceValidUntil": "2024-12-31"
         },
         "provider": {
@@ -69,7 +69,7 @@
     <div class="loading-screen">
         <div class="loading-content">
             <div class="loading-logo">
-                <i class="fas fa-lock"></i>
+                <img src="shield-logo.svg" alt="EPIC VPN Shield" class="loading-icon">
                 <span>EPIC VPN</span>
             </div>
             <div class="loading-spinner"></div>
@@ -80,32 +80,28 @@
     <nav class="navbar">
         <div class="nav-content">
             <a href="#hero" class="logo">
-                <i class="fas fa-lock"></i>
+                <img src="shield-logo.svg" alt="EPIC VPN Shield" class="logo-icon">
                 EPIC VPN
             </a>
             
-            <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            <button class="mobile-menu-toggle" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
             </button>
             
             <div class="nav-links mobile-hidden">
-                <a href="#hero" data-i18n="nav.main">Главная</a>
-                <a href="#features" data-i18n="nav.features">Преимущества</a>
-                <a href="#pricing" data-i18n="nav.pricing">Тарифы</a>
-                <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
-                <a href="#epic-cash" data-i18n="nav.epic-cash">Epic Cash</a>
+                <a href="#hero">Home</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contacts">Contacts</a>
+                <a href="#epic-cash">Epic Cash</a>
                 <a href="faq.html">FAQ</a>
-                <a href="#about-us" data-i18n="nav.about-us">About us</a>
+                <a href="#about-us">About us</a>
             </div>
             
             <div class="nav-actions">
-                <div class="lang-switcher">
-                                    <button id="lang-en" class="lang-btn active">EN</button>
-                <button id="lang-ru" class="lang-btn">RU</button>
-                </div>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nav.start">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener">
                     <i class="fas fa-rocket"></i>
-                    Начать бесплатно
+                    Start Free
                 </a>
             </div>
         </div>
@@ -114,10 +110,10 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <h1 data-i18n="hero.title">Your Privacy and Freedom Online</h1>
-            <p data-i18n="hero.subtitle">A secure, fast, and convenient VPN for total data protection</p>
+            <h1>Your Privacy and Freedom Online</h1>
+            <p>A secure, fast, and convenient VPN for total data protection</p>
             <div class="hero-btns">
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary btn-large" target="_blank" rel="noopener" data-i18n="hero.try">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary btn-large" target="_blank" rel="noopener">
                     <i class="fas fa-shield-alt"></i>
                     Try for Free
                 </a>
@@ -127,20 +123,6 @@
                 </a>
             </div>
         </div>
-            <!-- Widget Coingeek -->
-        <div className="w-full flex justify-center items-center py-8 px-4">
-            <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
-              <script src="https://widgets.coingecko.com/gecko-coin-price-chart-widget.js"></script>
-              <gecko-coin-price-chart-widget 
-                locale="en" 
-                dark-mode="true" 
-                transparent-background="true" 
-                coin-id="epic-cash" 
-                initial-currency="usd" 
-                width="100%">
-              </gecko-coin-price-chart-widget>
-            </div>
-          </div>
           
         <!-- Floating elements for visual appeal -->
         <div class="hero-floating">
@@ -158,14 +140,14 @@
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title" data-i18n="features.title">EPIC VPN Benefits</h2>
+        <h2 class="section-title">EPIC VPN Benefits</h2>
         <div class="features-grid">
             <a class="feature-card" href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener">
                 <div class="feature-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h3 data-i18n="features.strong">Strong Encryption</h3>
-                <p data-i18n="features.strong_desc">256-bit encryption protects your data from hacking and surveillance</p>
+                <h3>Strong Encryption</h3>
+                <p>256-bit encryption protects your data from hacking and surveillance</p>
                 <div class="feature-hover">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -175,8 +157,8 @@
                 <div class="feature-icon">
                     <i class="fas fa-bolt"></i>
                 </div>
-                <h3 data-i18n="features.speed">High Speed</h3>
-                <p data-i18n="features.speed_desc">Servers in many countries ensure lightning-fast connection</p>
+                <h3>High Speed</h3>
+                <p>Servers in many countries ensure lightning-fast connection</p>
                 <div class="feature-hover">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -186,8 +168,8 @@
                 <div class="feature-icon">
                     <i class="fas fa-globe"></i>
                 </div>
-                <h3 data-i18n="features.global">Global Access</h3>
-                <p data-i18n="features.global_desc">Access websites and services worldwide without restrictions</p>
+                <h3>Global Access</h3>
+                <p>Access websites and services worldwide without restrictions</p>
                 <div class="feature-hover">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -197,8 +179,8 @@
                 <div class="feature-icon">
                     <i class="fas fa-user-secret"></i>
                 </div>
-                <h3 data-i18n="features.anon">Anonymity</h3>
-                <p data-i18n="features.anon_desc">Your online activity remains confidential</p>
+                <h3>Anonymity</h3>
+                <p>Your online activity remains confidential</p>
                 <div class="feature-hover">
                     <i class="fas fa-arrow-right"></i>
                 </div>
@@ -208,109 +190,128 @@
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
-        <h2 class="section-title" data-i18n="pricing.title">Pricing Plans</h2>
+        <h2 class="section-title">Pricing Plans</h2>
         <div class="pricing-plans">
             <div class="plan-card">
-                <h3 class="plan-title" data-i18n="pricing.1m">1 Month</h3>
+                <h3 class="plan-title">1 Month</h3>
                 <div class="plan-price">
-                    <span data-i18n="pricing.price1m">699₽</span>
-                    <span data-i18n="pricing.per_month">/mo</span>
+                    <span>$9.99</span>
+                    <span>/mo</span>
                 </div>
                 <ul class="plan-features">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim">Безлимитный трафик</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.instant">Мгновенное подключение</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.max_speed">Максимальная скорость</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.devices5">До 5 устройств</span></li>
+                    <li><i class="fas fa-check"></i> Unlimited traffic</li>
+                    <li><i class="fas fa-check"></i> Instant connection</li>
+                    <li><i class="fas fa-check"></i> Maximum speed</li>
+                    <li><i class="fas fa-check"></i> Up to 5 devices</li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener">
                     <i class="fas fa-check"></i>
                     Choose
                 </a>
             </div>
             
             <div class="plan-card popular">
-                <h3 class="plan-title" data-i18n="pricing.3m">3 Months</h3>
+                <h3 class="plan-title">3 Months</h3>
                 <div class="plan-price">
-                    <span data-i18n="pricing.price3m">$7.99</span>
-                    <span data-i18n="pricing.per_month">/mo</span>
+                    <span>$7.99</span>
+                    <span>/mo</span>
                 </div>
-                <div class="plan-savings" data-i18n="pricing.save20">Save 20%</div>
+                <div class="plan-savings">Save 20%</div>
                 <ul class="plan-features">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim">Безлимитный трафик</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.instant">Мгновенное подключение</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.max_speed">Максимальная скорость</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.devices5">До 5 устройств</span></li>
+                    <li><i class="fas fa-check"></i> Unlimited traffic</li>
+                    <li><i class="fas fa-check"></i> Instant connection</li>
+                    <li><i class="fas fa-check"></i> Maximum speed</li>
+                    <li><i class="fas fa-check"></i> Up to 5 devices</li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener">
                     <i class="fas fa-star"></i>
                     Choose
                 </a>
             </div>
             
             <div class="plan-card">
-                <h3 class="plan-title" data-i18n="pricing.6m">6 Months</h3>
+                <h3 class="plan-title">6 Months</h3>
                 <div class="plan-price">
-                    <span data-i18n="pricing.price6m">$5.99</span>
-                    <span data-i18n="pricing.per_month">/mo</span>
+                    <span>$5.99</span>
+                    <span>/mo</span>
                 </div>
-                <div class="plan-savings" data-i18n="pricing.save40">Save 40%</div>
+                <div class="plan-savings">Save 40%</div>
                 <ul class="plan-features">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim">Безлимитный трафик</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.instant">Мгновенное подключение</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.max_speed">Максимальная скорость</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.devices10">До 10 устройств</span></li>
+                    <li><i class="fas fa-check"></i> Unlimited traffic</li>
+                    <li><i class="fas fa-check"></i> Instant connection</li>
+                    <li><i class="fas fa-check"></i> Maximum speed</li>
+                    <li><i class="fas fa-check"></i> Up to 10 devices</li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener">
                     <i class="fas fa-check"></i>
                     Choose
                 </a>
             </div>
             
             <div class="plan-card">
-                <h3 class="plan-title" data-i18n="pricing.1y">1 Year</h3>
+                <h3 class="plan-title">1 Year</h3>
                 <div class="plan-price">
-                    <span data-i18n="pricing.price1y">$3.99</span>
-                    <span data-i18n="pricing.per_month">/mo</span>
+                    <span>$3.99</span>
+                    <span>/mo</span>
                 </div>
-                <div class="plan-savings" data-i18n="pricing.save60">Save 60%</div>
+                <div class="plan-savings">Save 60%</div>
                 <ul class="plan-features">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim">Безлимитный трафик</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.instant">Мгновенное подключение</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.max_speed">Максимальная скорость</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim_devices">Безлимитные устройства</span></li>
+                    <li><i class="fas fa-check"></i> Unlimited traffic</li>
+                    <li><i class="fas fa-check"></i> Instant connection</li>
+                    <li><i class="fas fa-check"></i> Maximum speed</li>
+                    <li><i class="fas fa-check"></i> Unlimited devices</li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-outline" target="_blank" rel="noopener">
                     <i class="fas fa-check"></i>
                     Choose
                 </a>
             </div>
             
             <div class="plan-card premium">
-                <h3 class="plan-title" data-i18n="pricing.premium">Премиум 1 Год</h3>
+                <h3 class="plan-title">Premium 1 Year</h3>
                 <div class="plan-price">
-                    <span data-i18n="pricing.price_premium">$29</span>
-                    <span data-i18n="pricing.per_month">/mo</span>
+                    <span>$29</span>
+                    <span>/mo</span>
                 </div>
-                <div class="plan-savings" data-i18n="pricing.premium_badge">Premium</div>
+                <div class="plan-savings">Premium</div>
                 <ul class="plan-features">
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.dedicated_ip_premium">Выделенный IP адрес</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.unlim_devices_premium">Безлимитные устройства</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.priority_support_premium">Приоритетная поддержка</span></li>
-                    <li><i class="fas fa-check"></i> <span data-i18n="pricing.exclusive_locations">Эксклюзивные локации по запросу</span></li>
+                    <li><i class="fas fa-check"></i> Dedicated IP address</li>
+                    <li><i class="fas fa-check"></i> Unlimited devices</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                    <li><i class="fas fa-check"></i> Exclusive locations on request</li>
                 </ul>
-                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="pricing.choose">
+                <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary" target="_blank" rel="noopener">
                     <i class="fas fa-crown"></i>
                     Choose
                 </a>
             </div>
+            
+            <div class="plan-card epic-cash">
+                <h3 class="plan-title">EPIC CASH</h3>
+                <div class="plan-price">
+                    <span>Special</span>
+                    <span>Price</span>
+                </div>
+                <div class="plan-savings">Discount</div>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Payment with EPIC CASH with discount</li>
+                    <li><i class="fas fa-check"></i> All premium features</li>
+                    <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+                <a href="https://t.me/Jditadm" class="btn btn-primary" target="_blank" rel="noopener">
+                    <i class="fas fa-coins"></i>
+                    Buy with Discount
+                </a>
+            </div>
+
         </div>
     </section>
 
     <!-- Call to Action -->
     <section class="cta" id="signup">
-        <h2 data-i18n="cta.title">Start protecting your data today</h2>
-        <p data-i18n="cta.desc">Sign up and get 3 days of free access to EPIC VPN for complete anonymity</p>
-        <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary btn-large" target="_blank" rel="noopener" data-i18n="cta.get">
+        <h2>Start protecting your data today</h2>
+        <p>Sign up and get 3 days of free access to EPIC VPN for complete anonymity</p>
+        <a href="https://t.me/EpicPayVPNbot" class="btn btn-primary btn-large" target="_blank" rel="noopener">
             <i class="fas fa-gift"></i>
             Get Free Access
         </a>
@@ -322,20 +323,50 @@
             <div class="epic-cash-logo">
                 <img src="EPICCASHPIC.png"  width="150" height="150">
             </div>
-            <h2 data-i18n="epic-cash.title">EPIC CASH</h2>
-            <p data-i18n="epic-cash.desc">Конфиденциальная валюта для вашей финансовой свободы.</p>
-            <a href="https://epicvpn.io" class="btn btn-outline btn-large" target="_blank" rel="noopener" data-i18n="epic-cash.learn">
+            <h2>EPIC CASH</h2>
+            <p>Private currency for your financial freedom.</p>
+            <a href="https://epiccash.com" class="btn btn-outline btn-large" target="_blank" rel="noopener">
                 <i class="fas fa-arrow-right"></i>
-                Узнать больше
+                Learn More
             </a>
         </div>
     </section>
 
+            <!-- Widget Coingeek -->
+            <div className="w-full flex justify-center items-center py-8 px-4">
+                <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+                  <script src="https://widgets.coingecko.com/gecko-coin-price-chart-widget.js"></script>
+                  <gecko-coin-price-chart-widget 
+                    locale="en" 
+                    dark-mode="true" 
+                    transparent-background="true" 
+                    coin-id="epic-cash" 
+                    initial-currency="usd" 
+                    width="100%">
+                  </gecko-coin-price-chart-widget>
+                </div>
+              </div>
+
+          <!-- Widget Coingeek 2-->
+          <div className="w-full flex justify-center items-center py-8 px-4">
+            <div className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+                <script src="https://widgets.coingecko.com/gecko-coin-converter-widget.js"></script>
+              <gecko-coin-converter-widget 
+                locale="en" 
+                dark-mode="true" 
+                transparent-background="true" 
+                coin-id="epic-cash" 
+                initial-currency="usd" 
+                width="100%">
+              </gecko-coin-price-converter-widget>
+            </div>
+          </div>
+
     <!-- About Us Section -->
     <section class="about-us" id="about-us">
         <div class="about-us-content">
-            <h2 data-i18n="about-us.title">About Us</h2>
-            <p data-i18n="about-us.desc">We value freedom of choice and action, financial freedom and privacy of personal life, so EpicVPN provides you with a high-quality, reliable, fast, convenient and cheap VPN service with locations in many countries around the world.</p>
+            <h2>About Us</h2>
+            <p>We value freedom of choice and action, financial freedom and privacy of personal life, so EpicVPN provides you with a high-quality, reliable, fast, convenient and cheap VPN service with locations in many countries around the world.</p>
         </div>
     </section>
 
@@ -343,16 +374,16 @@
     <footer class="footer" id="contacts">
         <div class="footer-content">
             <div class="footer-column">
-                <h4 data-i18n="footer.support">Support</h4>
+                <h4>Support</h4>
                 <ul>
                     <li><a href="https://t.me/EpicPayVPNbot" target="_blank" rel="noopener">Telegram</a></li>
-                    <li><a href="faq.html" data-i18n="footer.faq">FAQ</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
-            <p data-i18n="footer.copyright">© 2025 EPIC VPN</p>
+            <p>© 2025 EPIC VPN</p>
         </div>
     </footer>
 
