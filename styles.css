@@ -447,6 +447,21 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     padding: 2rem 1rem;
 }
 
+.hero-brand {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    margin-bottom: 0.5rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 32px rgba(255, 140, 26, 0.2);
+    animation: fadeInUp 1s ease-out;
+    font-weight: 800;
+}
+
 .hero-content h1 {
     font-size: 2.4rem;
     line-height: 1.2;
@@ -474,9 +489,13 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
     /* Mobile responsive */
 @media (max-width: 768px) {
+    .hero-brand {
+        font-size: 1.6rem;   /* reduce brand size */
+        margin-top: 3.5rem;   /* move down slightly */
+    }
     .hero-content h1 {
         font-size: 1.6rem;   /* reduce heading size */
-        margin-top: 3.5rem;   /* move down slightly */
+        margin-top: 0;   /* reset margin since brand has it */
     }
     .hero-content p {
         font-size: 1rem;
@@ -675,6 +694,24 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     overflow: hidden;
     border: 2px solid var(--secondary-color);
     z-index: 1;
+}
+
+.plan-logo {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plan-logo img {
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    transition: var(--transition);
+}
+
+.plan-logo img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
 }
 
 .plan-card::before {
@@ -892,6 +929,9 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 6px 25px rgba(255, 215, 0, 0.4)) drop-shadow(0 2px 10px rgba(192, 192, 192, 0.3));
+    /* Remove white background and make it transparent */
+    mix-blend-mode: multiply;
+    background: transparent;
 }
 
 .epic-cash h2 {

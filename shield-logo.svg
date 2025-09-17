@@ -22,9 +22,9 @@
         stroke-width="0.5"
         filter="url(#shadow)"/>
   
-  <!-- Inner white field -->
+  <!-- Inner transparent field -->
   <path d="M16 3.5 L26.5 8.5 L26.5 20 C26.5 23, 23.5 26, 16 27.5 C8.5 26, 5.5 23, 5.5 20 L5.5 8.5 Z" 
-        fill="white"/>
+        fill="transparent"/>
   
   <!-- Three diagonal silver bars -->
   <rect x="8" y="12" width="16" height="2" rx="1" fill="url(#silverGradient)" transform="rotate(15 16 13)" filter="url(#shadow)"/>
