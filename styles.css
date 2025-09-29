@@ -929,6 +929,14 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     color: var(--text-secondary);
 }
 
+.plan-total-cost {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
 .plan-savings {
     background: var(--secondary-color);
     color: var(--text-primary);
