@@ -15,6 +15,7 @@ class EpicVPN {
         this.setupSmoothScrolling();
         this.setupIntersectionObserver();
         this.setupPerformanceOptimizations();
+        this.setupIPDetection();
     }
 
     setupEventListeners() {
@@ -579,6 +580,136 @@ class EpicVPN {
                 page_location: window.location.href
             });
         }
+    }
+
+    // IP Detection
+    setupIPDetection() {
+        const ipElement = document.getElementById('user-ip');
+        const flagElement = document.getElementById('country-flag');
+        if (!ipElement || !flagElement) return;
+
+        // Try multiple IP detection services for better reliability (IPv4 only)
+        const ipServices = [
+            'https://ipapi.co/json/',
+            'https://ip-api.com/json/',
+            'https://api.country.is/',
+            'https://api.ipify.org?format=json'
+        ];
+
+        let currentServiceIndex = 0;
+
+        const fetchIP = async () => {
+            try {
+                const response = await fetch(ipServices[currentServiceIndex], {
+                    method: 'GET',
+                    timeout: 5000
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                let ip = '';
+                let countryCode = '';
+                
+                // Handle different response formats
+                if (data.ip) {
+                    ip = data.ip;
+                    countryCode = data.country_code || data.country;
+                } else if (data.query) {
+                    ip = data.query;
+                    countryCode = data.countryCode;
+                } else if (data.status === 'success') {
+                    // ip-api.com format
+                    ip = data.query;
+                    countryCode = data.countryCode;
+                } else if (data.country) {
+                    // country.is format
+                    ip = data.ip;
+                    countryCode = data.country;
+                } else if (typeof data === 'string') {
+                    ip = data;
+                }
+                
+                console.log('IP data:', { ip, countryCode, data }); // Debug log
+                
+                // Validate IPv4 address
+                const ipv4Regex = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+                
+                if (ip && ipv4Regex.test(ip)) {
+                    ipElement.textContent = ip;
+                    ipElement.style.color = '#ff8c1a';
+                    
+                    // Set country code
+                    if (countryCode) {
+                        const countryCodeDisplay = this.getCountryCode(countryCode);
+                        if (countryCodeDisplay) {
+                            flagElement.textContent = countryCodeDisplay;
+                            flagElement.style.display = 'inline';
+                            flagElement.title = `Country: ${countryCode}`;
+                            console.log('Setting country code:', countryCodeDisplay, 'for country:', countryCode); // Debug log
+                        } else {
+                            console.log('No valid country code found for:', countryCode);
+                            flagElement.style.display = 'none';
+                        }
+                    } else {
+                        console.log('No country code found'); // Debug log
+                        flagElement.style.display = 'none';
+                    }
+                } else {
+                    throw new Error('No valid IPv4 found in response');
+                }
+                
+            } catch (error) {
+                console.warn(`IP service ${currentServiceIndex + 1} failed:`, error);
+                
+                // Try next service
+                currentServiceIndex++;
+                if (currentServiceIndex < ipServices.length) {
+                    setTimeout(fetchIP, 1000);
+                } else {
+                    // All services failed
+                    ipElement.textContent = 'Unable to detect IPv4';
+                    ipElement.style.color = '#e0a96d';
+                    ipElement.style.opacity = '0.6';
+                    flagElement.textContent = '';
+                    flagElement.style.display = 'none';
+                }
+            }
+        };
+
+        // Start IP detection
+        fetchIP();
+    }
+
+    // Get country code display
+    getCountryCode(countryCode) {
+        if (!countryCode || countryCode.length !== 2) {
+            console.log('Invalid country code:', countryCode);
+            return null;
+        }
+        
+        // Map of country codes to display codes
+        const countryCodeMap = {
+            'US': 'USA', 'GB': 'ENG', 'CA': 'CAN', 'AU': 'AUS', 'DE': 'DEU',
+            'FR': 'FRA', 'IT': 'ITA', 'ES': 'ESP', 'NL': 'NLD', 'SE': 'SWE',
+            'NO': 'NOR', 'DK': 'DNK', 'FI': 'FIN', 'CH': 'CHE', 'AT': 'AUT',
+            'BE': 'BEL', 'IE': 'IRL', 'PT': 'PRT', 'PL': 'POL', 'CZ': 'CZE',
+            'HU': 'HUN', 'RO': 'ROU', 'BG': 'BGR', 'HR': 'HRV', 'SK': 'SVK',
+            'SI': 'SVN', 'EE': 'EST', 'LV': 'LVA', 'LT': 'LTU', 'RU': 'RUS',
+            'UA': 'UKR', 'BY': 'BLR', 'MD': 'MDA', 'JP': 'JPN', 'KR': 'KOR',
+            'CN': 'CHN', 'IN': 'IND', 'BR': 'BRA', 'MX': 'MEX', 'AR': 'ARG',
+            'CL': 'CHL', 'CO': 'COL', 'PE': 'PER', 'VE': 'VEN', 'ZA': 'ZAF',
+            'TR': 'TUR', 'GR': 'GRC', 'IL': 'ISR', 'SA': 'SAU', 'AE': 'ARE',
+            'EG': 'EGY', 'NG': 'NGA', 'KE': 'KEN', 'MA': 'MAR', 'TN': 'TUN',
+            'TH': 'THA', 'VN': 'VNM', 'ID': 'IDN', 'MY': 'MYS', 'SG': 'SGP',
+            'PH': 'PHL', 'TW': 'TWN', 'HK': 'HKG', 'NZ': 'NZL'
+        };
+        
+        const displayCode = countryCodeMap[countryCode.toUpperCase()];
+        console.log('Country code for', countryCode, ':', displayCode);
+        return displayCode || countryCode.toUpperCase();
     }
 }
 

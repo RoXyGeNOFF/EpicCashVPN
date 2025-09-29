@@ -147,6 +147,63 @@ h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
 h2 { font-size: clamp(2rem, 4vw, 3rem); }
 h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 
+/* Site Bar */
+.site-bar {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(90deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    border-top: 2px solid #ff8c1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 0.75rem;
+    color: #ffffff;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.site-bar-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 0.5rem;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ip-label {
+    font-weight: 600;
+    color: #ff8c1a;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ip-address {
+    font-weight: 700;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.3px;
+    font-size: 0.8rem;
+    word-break: break-all;
+    line-height: 1.2;
+}
+
+.country-flag {
+    font-size: 1rem;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
@@ -159,7 +216,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1001;
     border-bottom: 1px solid rgba(255, 140, 26, 0.2);
     transition: var(--transition);
 }
@@ -273,22 +330,22 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     display: flex;
 }
 
-.nav-links.mobile-open {
-    display: flex !important;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: rgba(24, 24, 24, 0.98);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
-    border-top: 1px solid rgba(255, 140, 26, 0.2);
-    box-shadow: var(--shadow-primary);
-    z-index: 1000;
-    animation: slideDown 0.3s ease;
-}
+    .nav-links.mobile-open {
+        display: flex !important;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(24, 24, 24, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(255, 140, 26, 0.2);
+        box-shadow: var(--shadow-primary);
+        z-index: 1001;
+        animation: slideDown 0.3s ease;
+    }
 
 @keyframes slideDown {
     from {
@@ -848,12 +905,22 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     letter-spacing: 0.5px;
 }
 
+/* EPIC CASH specific spacing */
+.plan-card.epic-cash .plan-title {
+    margin-bottom: 0.5rem;
+}
+
 .plan-price {
     font-size: 3rem;
     font-weight: 900;
     margin-bottom: 2rem;
     color: var(--primary-color);
     text-shadow: 0 2px 12px rgba(255, 140, 26, 0.2);
+}
+
+/* EPIC CASH specific spacing */
+.plan-card.epic-cash .plan-price {
+    margin-bottom: 0.5rem;
 }
 
 .plan-price span {
@@ -878,6 +945,17 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     list-style: none;
     margin-bottom: 2.5rem;
     text-align: left;
+}
+
+/* EPIC CASH specific spacing */
+.plan-card.epic-cash .plan-features {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* EPIC CASH specific font size */
+.plan-card.epic-cash .plan-features li {
+    font-size: 0.9rem;
 }
 
 .plan-features li {

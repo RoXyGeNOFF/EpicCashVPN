@@ -44,10 +44,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RoXyGeNOFF/epic-cash-vpn.git"
+    "url": "https://github.com/RoXyGeNOFF/EpicCashVPN.git"
   },
   "bugs": {
-    "url": "https://github.com/RoXyGeNOFF/epic-cash-vpn/issues"
+    "url": "https://github.com/RoXyGeNOFF/EpicCashVPN/issues"
   },
   "homepage": "https://epicvpn.io",
   "devDependencies": {
